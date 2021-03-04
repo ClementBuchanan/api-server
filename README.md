@@ -1,6 +1,6 @@
-# 401 Basic API Server - Lab 03
+# 401 Basic API Server - Lab 04
 
-## Project: Deployment test
+## Project: API Server
 
 ## Author: Clement Buchanan
 
@@ -16,8 +16,8 @@
 
 ### Running the App
 
-- npm start
-  - Endpoint: /things
+- node index.js
+  - Endpoint: /food
   - Return Object from db
   - Return: 404 error
 
@@ -43,4 +43,4 @@
 
 ### Deployment
 
-  - [Heroku deployment link]()
+  - [Heroku deployment link](https://cbuchanan-api-server.herokuapp.com/)
