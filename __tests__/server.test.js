@@ -1,6 +1,7 @@
 'use strict';
 
 const supergoose = require('@code-fellows/supergoose');
+const { request } = require('express');
 const { app } = require('../src/server.js');
 const testServer = supergoose(app);
 
@@ -128,6 +129,20 @@ describe('delete clothes item', () => {
 			Object.keys(testClothes).forEach((key) => {
 				expected(record[key]).toEqual(expected[key]);
 			});
+		});
+	});
+
+	it('404 on a bad route', async () => {
+		await request.get('/DoesNotExist')
+		.then(data => {
+			expect(data.status).toEqual(404);
+		});
+	});
+
+	it('404 on a bad method', async () => {
+		await request.post('/clothes')
+		then(data => {
+			expect(data.status).toEqual(404);
 		});
 	});
 });
