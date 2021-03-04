@@ -15,49 +15,119 @@ describe('Food Collection', () => {
 	});
 });
 
-// it('can get a food item', () => {
-// 	let testFood = { name: 'test food item', calories: 9999, type: 'VEG' };
-// 	let expected = { name: 'test food item', calories: 9999, type: 'VEG' };
+describe('Food item', () => {
+	it('can get a food item', () => {
+		let testFood = { name: 'test food item', calories: 9999, type: 'VEG' };
+		let expected = { name: 'test food item', calories: 9999, type: 'VEG' };
+			return testServer.get('/food').send(testFood)
+				return food.create(testFood).then((record) => {
+					return food.get(record._id).then((item) => {
+					Object.keys(testFood).forEach((key) => {
+					expected(item[key]).toEqual(expected[key]);
+				});
+			});
+		});
+	});
+});
 
-// 	return food.create(testFood).then((record) => {
-// 		return food.get(record._id).then((item) => {
-// 			Object.keys(testFood).forEach((key) => {
-// 				expected(item[key]).toEqual(expected[key]);
-// 			});
-// 		});
-// 	});
-// });
+describe('Food item', () => {
+	it('can update a food item', () => {
+		let testFood = { name: 'test food item', calories: 9999, type: 'VEG' };
+		let expected = { name: 'test food item', calories: 9999, type: 'VEG' };
+		return testServer.put('/food').send(testFood)
+		return food.create(testFood).then((record) => {
+			return food.put(record._id).then((item) => {
+				Object.keys(testFood).forEach((key) => {
+					expected(item[key]).toEqual(expected[key]);
+				});
+			});
+		});
+	});
+});
 
-// describe('Clothes Collection', () => {
-// 	it('can create a new clothing item', () => {
-// 		let testClothes = {
-// 			brand: 'test clothiing item',
-// 			color: 'blue',
-// 			type: 'SHIRT',
-// 		};
-// 		let expected = { name: 'test clothing item', color: 'blue', type: 'SHIRT' };
-// 		return clothes.create(testClothes).then((record) => {
-// 			console.log('test clothing item from DB: ', record);
-// 			Object.keys(testClothes).forEach((key) => {
-// 				expected(record[key]).toEqual(expected[key]);
-// 			});
-// 		});
-// 	});
-// });
+describe('Food item', () => {
+	it('can delete a food item', () => {
+		let testFood = { name: 'test food item', calories: 9999, type: 'VEG' };
+		let expected = { name: 'test food item', calories: 9999, type: 'VEG' };
+		return testServer.delete('/food').send(testFood)
+		return food.create(testFood).then((record) => {
+			return food.delete(record._id).then((item) => {
+				Object.keys(testFood).forEach((key) => {
+					expected(item[key]).toEqual(expected[key]);
+				});
+			});
+		});
+	});
+});
 
-// it('can get a clothing item', () => {
-// 	let testClothes = {
-// 		brand: 'test clothing item',
-// 		color: 'blue',
-// 		type: 'SHIRT',
-// 	};
-// 	let expected = { brand: 'test clothing item', color: 'blue', type: 'SHIRT' };
+describe('clothes collection', () => {
+	it('can create a new clothing item', () => {
+		let testClothes = {
+			brand: 'test clothiing item',
+			color: 'blue',
+			type: 'SHIRT',
+		};
+		let expected = { name: 'test clothing item', color: 'blue', type: 'SHIRT' };
+		return testServer.post('/clothes').send(testClothes)
+		return clothes.create(testClothes).then((record) => {
+			console.log('test clothing item from DB: ', record);
+			Object.keys(testClothes).forEach((key) => {
+				expected(record[key]).toEqual(expected[key]);
+			});
+		});
+	});
+});
 
-// 	return clothes.create(clothesFood).then((record) => {
-// 		return clothes.get(record._id).then((item) => {
-// 			Object.keys(testClothes).forEach((key) => {
-// 				expected(item[key]).toEqual(expected[key]);
-// 			});
-// 		});
-// 	});
-// });
+describe('find clothes item', () => {
+	it('can find a new clothing item', () => {
+		let testClothes = {
+			brand: 'test clothiing item',
+			color: 'blue',
+			type: 'SHIRT',
+		};
+		let expected = { name: 'test clothing item', color: 'blue', type: 'SHIRT' };
+		return testServer.get('/clothes').send(testClothes)
+		return clothes.get(testClothes).then((record) => {
+			console.log('test clothing item from DB: ', record);
+			Object.keys(testClothes).forEach((key) => {
+				expected(record[key]).toEqual(expected[key]);
+			});
+		});
+	});
+});
+
+describe('update clothes item', () => {
+	it('can update clothing item', () => {
+		let testClothes = {
+			brand: 'test clothiing item',
+			color: 'blue',
+			type: 'SHIRT',
+		};
+		let expected = { name: 'test clothing item', color: 'blue', type: 'SHIRT' };
+		return testServer.put('/clothes').send(testClothes)
+		return clothes.put(testClothes).then((record) => {
+			console.log('test clothing item from DB: ', record);
+			Object.keys(testClothes).forEach((key) => {
+				expected(record[key]).toEqual(expected[key]);
+			});
+		});
+	});
+});
+
+describe('delete clothes item', () => {
+	it('can delete clothing item', () => {
+		let testClothes = {
+			brand: 'test clothiing item',
+			color: 'blue',
+			type: 'SHIRT',
+		};
+		let expected = { name: 'test clothing item', color: 'blue', type: 'SHIRT' };
+		return testServer.delete('/clothes').send(testClothes)
+		return clothes.delete(testClothes).then((record) => {
+			console.log('test clothing item from DB: ', record);
+			Object.keys(testClothes).forEach((key) => {
+				expected(record[key]).toEqual(expected[key]);
+			});
+		});
+	});
+});
