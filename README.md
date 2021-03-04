@@ -1,4 +1,4 @@
-# 401 Basic API Server - Lab 04
+# 401 API Server - Lab 04
 
 ## Project: API Server
 
