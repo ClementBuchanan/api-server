@@ -1,0 +1,27 @@
+{
+  "name": "api-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint **/*.js",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClementBuchanan/api-server.git"
+  },
+  "author": "Clement Buchanan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClementBuchanan/api-server/issues"
+  },
+  "homepage": "https://github.com/ClementBuchanan/api-server#readme",
+  "dependencies": {
+    "@code-fellows/supergoose": "^1.0.11",
+    "express": "^4.17.1",
+    "jest": "^26.6.3",
+    "mongoose": "^5.11.18"
+  }
+}
