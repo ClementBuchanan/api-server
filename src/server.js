@@ -3,7 +3,7 @@
 const express = require('express');
 const app = express();
 const foodRoutes = require('./routes/food');
-const clothesRoutes = request('/routes/clothes');
+const clothesRoutes = require('./routes/clothes');
 app.use(express.json());
 app.use(foodRoutes);
 app.use(clothesRoutes);
