@@ -6,19 +6,19 @@ const { app } = require('../src/server.js');
 const testServer = supergoose(app);
 
 describe('Food Collection', () => {
-	// it('404 on a bad route', async () => {
-	// 	await request.get('/DoesNotExist')
-	// 		.then(data => {
-	// 			expect(data.status).toEqual(404);
-	// 		});
-	// });
+	it('404 on a bad route', async () => {
+		await testServer.get('/DoesNotExist')
+			.then(data => {
+				expect(data.status).toEqual(404);
+			});
+	});
 
-	// it('404 on a bad method', async () => {
-	// 	await request.post('/clothes')
-	// 	then(data => {
-	// 		expect(data.status).toEqual(404);
-	// 	});
-	// });
+	it('404 on a bad method', async () => {
+		await testServer.post('/clothes')
+		.then(data => {
+			expect(data.status).toEqual(404);
+		});
+	});
 
 	it('can create a new food item', () => {
 		let testFood = { name: 'testfood item', calories: 9999, type: 'VEG' };
@@ -28,9 +28,7 @@ describe('Food Collection', () => {
 			console.log(results.body);
 		})
 	});
-});
 
-describe('Food item', () => {
 	it('can get a food item', () => {
 		let testFood = { name: 'test food item', calories: 9999, type: 'VEG' };
 		let expected = { name: 'test food item', calories: 9999, type: 'VEG' };
@@ -43,9 +41,7 @@ describe('Food item', () => {
 			});
 		});
 	});
-});
 
-describe('Food item', () => {
 	it('can update a food item', () => {
 		let testFood = { name: 'test food item', calories: 9999, type: 'VEG' };
 		let expected = { name: 'test food item', calories: 9999, type: 'VEG' };
@@ -58,9 +54,7 @@ describe('Food item', () => {
 			});
 		});
 	});
-});
 
-describe('Food item', () => {
 	it('can delete a food item', () => {
 		let testFood = { name: 'test food item', calories: 9999, type: 'VEG' };
 		let expected = { name: 'test food item', calories: 9999, type: 'VEG' };
@@ -73,9 +67,7 @@ describe('Food item', () => {
 			});
 		});
 	});
-});
 
-describe('clothes collection', () => {
 	it('can create a new clothing item', () => {
 		let testClothes = {
 			brand: 'test clothiing item',
@@ -91,9 +83,7 @@ describe('clothes collection', () => {
 			});
 		});
 	});
-});
 
-describe('find clothes item', () => {
 	it('can find a new clothing item', () => {
 		let testClothes = {
 			brand: 'test clothiing item',
@@ -109,9 +99,7 @@ describe('find clothes item', () => {
 			});
 		});
 	});
-});
 
-describe('update clothes item', () => {
 	it('can update clothing item', () => {
 		let testClothes = {
 			brand: 'test clothiing item',
@@ -127,9 +115,7 @@ describe('update clothes item', () => {
 			});
 		});
 	});
-});
 
-describe('delete clothes item', () => {
 	it('can delete clothing item', () => {
 		let testClothes = {
 			brand: 'test clothiing item',
