@@ -1,9 +1,10 @@
 'use strict';
 
+require('dotenv').config();
 const mongoose = require('mongoose');
 const server = require('./src/server.js');
 const PORT = process.env.PORT || 3333;
-const MONGODB_URI = 'mongodb://localhost:27017/mongo-db-demo';
+const MONGODB_URI = process.env.MONGODB_URI;
 const options = { useNewUrlParser: true, useUnifiedTopology: true };
 
 mongoose.connect(MONGODB_URI, options)
