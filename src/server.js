@@ -6,9 +6,9 @@ const foodRoutes = require('./routes/food');
 app.use(express.json());
 app.use(foodRoutes);
 
-// const notFound = require('./src/error-handlers/404.js');
-// const errors = require('./src/error-handlers/500.js');
-// const logger = require('./src/middleware/logger.js');
+const notFound = require('./error-handlers/404.js');
+const errors = require('./error-handlers/500.js');
+const logger = require('./middleware/logger.js');
 
 function start(port) {
     app.listen(port, () => {
