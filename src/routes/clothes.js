@@ -5,7 +5,7 @@ const express = require('express');
 const model = require('../models/clothes-model.js');
 const Wrapper = require('../models/data-collection-class');
 
-const food = new Wrapper(model);
+const clothes = new Wrapper(model);
 
 const clothesRoute = express.Router();
 
