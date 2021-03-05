@@ -6,6 +6,20 @@ const { app } = require('../src/server.js');
 const testServer = supergoose(app);
 
 describe('Food Collection', () => {
+	// it('404 on a bad route', async () => {
+	// 	await request.get('/DoesNotExist')
+	// 		.then(data => {
+	// 			expect(data.status).toEqual(404);
+	// 		});
+	// });
+
+	// it('404 on a bad method', async () => {
+	// 	await request.post('/clothes')
+	// 	then(data => {
+	// 		expect(data.status).toEqual(404);
+	// 	});
+	// });
+
 	it('can create a new food item', () => {
 		let testFood = { name: 'testfood item', calories: 9999, type: 'VEG' };
 		let expected = { name: 'test food item', calories: 9999, type: 'VEG' };
@@ -129,20 +143,6 @@ describe('delete clothes item', () => {
 			Object.keys(testClothes).forEach((key) => {
 				expected(record[key]).toEqual(expected[key]);
 			});
-		});
-	});
-
-	it('404 on a bad route', async () => {
-		await request.get('/DoesNotExist')
-		.then(data => {
-			expect(data.status).toEqual(404);
-		});
-	});
-
-	it('404 on a bad method', async () => {
-		await request.post('/clothes')
-		then(data => {
-			expect(data.status).toEqual(404);
 		});
 	});
 });

@@ -7,7 +7,7 @@ const Wrapper = require('../models/data-collection-class');
 
 const food = new Wrapper(model);
 
-const foodRoute = express.Router();
+const clothesRoute = express.Router();
 
 clothesRoute.get('/clothes', getClothesList);
 clothesRoute.get('/clothes/:id', getClothes);
