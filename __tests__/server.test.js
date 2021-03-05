@@ -14,7 +14,7 @@ describe('Food Collection', () => {
 	});
 
 	it('404 on a bad method', async () => {
-		await testServer.post('/clothes')
+		await testServer.patch('/clothes')
 		.then(data => {
 			expect(data.status).toEqual(404);
 		});
